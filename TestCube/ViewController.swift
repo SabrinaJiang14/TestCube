@@ -9,7 +9,7 @@
 import UIKit
 import CoreMotion
 
-class ViewController: UIViewController, CAAnimationDelegate, UICollisionBehaviorDelegate, UIDynamicAnimatorDelegate {
+class ViewController: UIViewController, UICollisionBehaviorDelegate, UIDynamicAnimatorDelegate {
     
     @IBOutlet weak var btnBegin: UIButton!
     @IBOutlet weak var diceView: UIImageView!
@@ -18,21 +18,15 @@ class ViewController: UIViewController, CAAnimationDelegate, UICollisionBehavior
     var angle = CGPoint(x: 0, y: 0)
 
     var dynamicAnimator = UIDynamicAnimator()
-    var gravite:UIGravityBehavior?
     
     var images:[CubeImage] = []
     let totalCount = 4
     let manager = CMMotionManager()
-    var lastUpdateTime:Date?
-    var speedX:Double = 0
-    var speedY:Double = 0
-    var yuan:UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initCubeLayer()
         initCube()
-//        isAccelerometerAvailable()
     }
     
     func initCubeLayer() {
